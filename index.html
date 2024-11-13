@@ -3,54 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Responsive Portfolio</title>
     <style>
-        
-        html, body {
-            height: 100%;  /* Full height for the page */
-            margin: 0;     /* Remove default margin */
-            background-color: black;
-        }
+        /* Reset some default styling for consistency across browsers */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        .gridbox{
+
+        /* Set body to take up the full viewport height */
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh; /* Ensure body takes up full height */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+            color: white;
+        }
+
+        /* Fullscreen grid layout */
+        .gridbox {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            width: 100%;
-            height: 100%;
-            
-
             grid-template-areas: 
-            "H H H"
-            "i t t" ;
+                "H H H"
+                "i t t";
+            grid-template-columns: 1fr 2fr 2fr; /* Responsive column distribution */
+            grid-gap: 30px; /* Increased gap between grid items */
+            width: 100%;
+            max-width: 1200px; /* Maximum width for large screens */
+            padding: 30px;
+            height: 100%; /* Ensure the grid container takes up the full height */
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+            border-radius: 20px; /* Rounded corners */
         }
-        .Heading{
-            grid-area: H;
 
+        /* Heading Section */
+        .Heading {
+            grid-area: H;
+            color: #ffcc00; /* Yellow color */
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
         }
-        .ima{
+
+        /* Image Section */
+        .ima {
             grid-area: i;
-            background-image: ;
+            background: url('https://www.freeiconspng.com/uploads/volleyball-ball-icon-png-16.png') center/cover no-repeat;
+            height: 250px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
-        .ima2{
-            background-image: ;
-        }
-        .sentence{
+
+        /* Text Section with darker gradient */
+        .sentence {
             grid-area: t;
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%); /* Darker gradient for text section */
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 1.1rem;
+            color: #eee; /* Lighter color for text to contrast with the dark background */
+            margin-top: 20px;
         }
+
+        /* Add spaces and margins between sections */
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .gridbox {
+                grid-template-columns: 1fr 1fr; /* Stacks the grid items in 2 columns */
+                grid-template-areas: 
+                    "H H"
+                    "i t";
+            }
+
+            .Heading {
+                font-size: 1.8rem;
+            }
+
+            .ima {
+                height: 180px; /* Smaller image for tablets */
+            }
+
+            .sentence {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Heading {
+                font-size: 1.5rem;
+            }
+
+            .ima {
+                height: 150px; /* Even smaller image for mobile */
+            }
+
+            .sentence {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Fullscreen grid container -->
     <div class="gridbox">
-        <div class="Heading text-4xl bg-gradient-to-r from-yellow-500 to-green-500 bg-clip-text text-transparent"><h1>Welcome to my portfolio!</h1></div>
-        <div class="ima"><div class="ima2"></div></div>
-        <div class="sentence"><p>This is a sample sentence that describes my portfolio. Feel free to explore!</p></div>
-    
-    </div>
-</body>
-</html>
+        <!-- Heading Section -->
+        <div class="Heading">
+            <h1>Welcome to my portfolio!</h1>
+        </div>
+
+        <!-- Image Section -->
+        <div class="ima"></div>
+
+        <!-- Text Section with hobbies only -->
+        <div class="sentence">
+            <h3>About Me</h3>
+            <p>Hello! My name is [Your Name], and I am passionate about both physical activities and technology. Here’s a little about me:</p>
+            <ul>
+                <li><strong>Volleyball:</strong> I’ve been playing volleyball for several years. It’s a sport that I enjoy not only for the physical challenge but also for the teamwork and strategy involved. It's one of my favorite ways to stay fit and connected with friends.</li>
+                <li><strong>Boxing:</strong> Boxing is another passion of mine. It helps me maintain both physical and mental strength. The discipline and focus required in boxing have taught me a lot about perseverance and setting goals.</li>
+                <li><strong>Breakdancing:</strong> Breakdancing allows me to express myself through movement. It's one of my favorite hobbies, as it combines athleticism, creativity, and rhythm. I love learning new moves and
